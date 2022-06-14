@@ -2,7 +2,8 @@
 #include <cstdio>
 #include <cmath>
 using namespace std;
- 
+//数学题
+
 int main()
 {
 	double Vs, R, C;
