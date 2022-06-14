@@ -5,6 +5,31 @@
 #include <map>
 using namespace std;
 
+/*
+Input
+12
+4873279
+ITS-EASY
+888-4567
+3-10-10-10
+888-GLOP
+TUT-GLOP
+967-11-11
+310-GINO
+F101010
+888-1200
+-4-8-7-3-2-7-9-
+487-3279
+
+Output
+310-1010 2
+487-3279 4
+888-4567 3
+
+*/
+
+
+
 //将字母转换为数字
 char convert(char c){
          if(c <= 'C') return '2';
