@@ -6,7 +6,7 @@
 using namespace std;
 
 bool ans[3][M];
- 
+ //打表
 int main()
 {
     int p, e, i, d;
