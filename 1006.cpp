@@ -6,7 +6,7 @@
 using namespace std;
 
 bool ans[3][M];
- //打表
+ //打表，可用中国算法
 int main()
 {
     int p, e, i, d;
