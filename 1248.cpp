@@ -5,6 +5,10 @@
 #include <algorithm>
 using namespace std;
 
+/*
+给定字符串，从字符串中选择字符转换成整形满足密码公式，要求输出结果按照最大字典序输出
+poj 1248
+*/
 
 bool cmp(char a, char b) {
     return a > b;
