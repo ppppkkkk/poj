@@ -1,6 +1,12 @@
 #include<iostream>
 using namespace std;
- 
+/*
+当n为奇数时候n = 3*n + 1；
+为偶数时n = n/2；
+求出区间（i,j）包括i，j的最大循环次数。
+*/
+
+
 int length(int n)
 {
     int len = 1;
