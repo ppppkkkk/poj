@@ -5,7 +5,8 @@
 using namespace std;
 char map[300][300];
 
-
+//poj 1102
+//打印火柴棒数字
 
 void Display(int n, int c, int s)
 {
