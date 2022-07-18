@@ -5,6 +5,15 @@
 #include<algorithm>
 using namespace std;
 
+
+/*
+* poj 1046
+* 枚举
+给一组（16）个RGB颜色组合，叫做Target
+然后再给你一组RGB，叫做Map
+然后，对于Map中的每个RGB，求Target中离它最近的RGB
+*/
+
 struct Color
 {
     float a;
@@ -18,7 +27,7 @@ int main()
     for (int i = 0;i < 16; i++)
         cin >> A[i].a >> A[i].b >> A[i].c;
     float x, y, z;
-    while (cin >> x >> y >> z)             
+    while (cin >> x >> y >> z)
     {
         if (x == -1 && y == -1 && z == -1)
             break;
