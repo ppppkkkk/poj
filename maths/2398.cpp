@@ -22,70 +22,99 @@ using namespace std;
 
 
 
-const double pi = acos(-1.0);
-const int maxn = 1e3 + 7;
-int ans[maxn], num[maxn];
-
-struct Point {
-    int x, y;
-    Point() {}
-    Point(int _x, int _y) { x = _x;y = _y; }
+struct Point
+{
+    long long int x, y;
 };
 
-struct Line {
-    Point a, b;
-    Line() {}
-    Line(Point _a, Point _b) { a = _a;b = _b; }
-}line[maxn];
-
-bool cmp(Line u, Line v)
+struct Line
 {
-    return  u.a.x < v.a.x;
+    Point a, b;
+} line[5005];
+
+long long int cnt[1005], cnt1[1010];
+
+int Multi(Point p1, Point p2, Point p0)
+{
+    return (p1.x - p0.x) * (p2.y - p0.y) - (p2.x - p0.x) * (p1.y - p0.y);
 }
 
-//求叉积*
-int cross(Point a, Point b, Point c)
+bool cmp(Line a, Line b)
 {
-    a.x -= c.x;a.y -= c.y;
-    b.x -= c.x;b.y -= c.y;
-    return a.x * b.y - a.y * b.x;
+    return a.a.x < b.a.x;
+}
+
+void BinarySearch(Point a, int n)
+{
+    int l, r, mid;
+
+    l = 0; r = n - 1;
+
+    while (l < r)
+    {
+        mid = (l + r) >> 1;
+        if (Multi(a, line[mid].a, line[mid].b) > 0)
+        {
+            l = mid + 1;
+        }
+        else
+        {
+            r = mid;
+        }
+    }
+    if (Multi(a, line[l].a, line[l].b) < 0)
+    {
+        cnt[l]++;
+    }
+    else
+    {
+        cnt[l + 1]++;
+    }
 }
 
 int main()
 {
     int n, m, x1, y1, x2, y2;
-    while (~scanf("%d", &n) && n)
+    int i, t1, t2;
+    Point a;
+
+    while (cin >> n && n)
     {
-        memset(ans, 0, sizeof(ans));
-        memset(ans, 0, sizeof(num));
-        scanf("%d%d%d%d%d", &m, &x1, &y1, &x2, &y2);
-        for (int i = 0;i < n;i++)
+        cin >> m >> x1 >> y1 >> x2 >> y2;
+        for (i = 0; i < n; i++)
         {
-            int Ui, Li;
-            scanf("%d%d", &Ui, &Li);
-            line[i] = Line(Point(Ui, y1), Point(Li, y2));
+            cin >> t1 >> t2;
+            line[i].a.x = t1;
+            line[i].a.y = y1;
+            line[i].b.x = t2;
+            line[i].b.y = y2;
         }
-        line[n] = Line(Point(x2, y1), Point(x2, y2));
-        sort(line, line + n + 1, cmp);
-        Point s;
-        while (m--)
+
+        sort(line, line + n, cmp);
+
+        memset(cnt, 0, sizeof(cnt));
+        memset(cnt1, 0, sizeof(cnt1));
+        for (i = 0; i < m; i++)
         {
-            scanf("%d%d", &s.x, &s.y);
-            int l = 0, r = n;
-            while (l <= r)
+            cin >> a.x >> a.y;
+            BinarySearch(a, n);
+        }
+
+        cout << "Box" << endl;
+        for (int i = 0; i <= n; i++)
+        {
+            if (cnt[i])
             {
-                int mid = (l + r) >> 1;
-                if (cross(line[mid].b, line[mid].a, s) > 0)
-                    r = mid - 1;
-                else l = mid + 1;
+                cnt1[cnt[i]]++;
             }
-            ans[l]++;
         }
-        for (int i = 0;i <= n;i++)
-            if (ans[i]) num[ans[i]]++;
-        printf("Box\n");
-        for (int i = 1;i <= n;i++)
-            if (num[i]) printf("%d: %d\n", i, num[i]);
+        for (int i = 1; i <= m; i++)
+        {
+            if (cnt1[i])
+            {
+                printf("%d: %I64d\n", i, cnt1[i]);
+            }
+        }
     }
-    return 0;
 }
+
