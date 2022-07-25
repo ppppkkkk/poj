@@ -12,3 +12,4 @@ int main()
 	scanf("%d%d%d", &R, &M, &Y);
 	printf("%d\n", (int)(M * pow(1 + R / 100.0, Y)));
 	return 0;
+}
