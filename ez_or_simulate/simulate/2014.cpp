@@ -14,7 +14,7 @@ using namespace std;
 
 
 int main() {
-	int x, y, m , now , w , h , last ;
+	int x, y, m, now, w, h, last;
 	while (scanf("%d", &m), m) {
 		w = h = last = now = 0;
 		while (scanf("%d%d", &x, &y)) {
