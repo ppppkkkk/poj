@@ -17,10 +17,10 @@ const int maxn = 100005;
 int s[15];
 int main()
 {
-    long long ans, n;
+    int ans, n;
     while (cin >> n && n)
     {
-        long long  m = n;
+        int  m = n;
 		int num = 0;
 		while (m) {
 			s[num++] = m % 10;
