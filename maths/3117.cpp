@@ -23,7 +23,7 @@ int main()
     string s;
     int num;
     int sum;
-    while (cin>>n>>t,n,t)//输入随机wa
+    while (cin>>n>>t,n)//t不能在
     {
         sum = 0;
         for (int i = 0; i < n; i++)
