@@ -18,9 +18,8 @@ using namespace std;
 greedy
 */
 
-#define MAX_NUM 13
-int paint[MAX_NUM];
-int bottle[MAX_NUM];
+int paint[10];
+int bottle[10];
 bool cmp(const int a, const int b) {
     return a > b;
 }
@@ -50,7 +49,7 @@ int solve(int n, int gray) {
         paint[1] --;
         paint[2] --;
         gray--;
-        //sort(paint, paint + n, cmp);
+        sort(paint, paint + n, cmp);
     }
 
     return result;
